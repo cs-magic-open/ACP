@@ -1,0 +1,86 @@
+{
+  "name": "@cs-magic/acp",
+  "publisher": "cs-magic",
+  "displayName": "Awesome Coding Prompt",
+  "description": "A VS Code extension for managing and using coding prompts",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "acp.quickPick",
+        "title": "Awesome Coding Prompts: Quick Pick",
+        "icon": "$(search)"
+      },
+      {
+        "command": "acp.recentPrompt",
+        "title": "Awesome Coding Prompts: Recent Prompts",
+        "icon": "$(history)"
+      },
+      {
+        "command": "acp.popularTags",
+        "title": "Awesome Coding Prompts: Popular Tags",
+        "icon": "$(tag)"
+      },
+      {
+        "command": "acp.createPrompt",
+        "title": "Awesome Coding Prompts: Create Custom Prompt",
+        "icon": "$(edit)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/lodash": "^4.17.13",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.9",
+    "@types/node-fetch": "^2.6.1",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.4.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.54.0",
+    "glob": "7.2.3",
+    "mocha": "^11.0.1",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.0",
+    "vite": "^6.0.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@iarna/toml": "^2.2.5",
+    "@vscode/codicons": "^0.0.36",
+    "jotai": "^2.10.3",
+    "lodash": "^4.17.21",
+    "node-fetch": "^2.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.54.0",
+    "vscode-codicons": "^0.0.17",
+    "zod": "^3.24.0"
+  }
+}

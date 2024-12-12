@@ -1,0 +1,161 @@
+id = "prompt-service-tags"
+created_at = "2024-12-10T19:09:04+08:00"
+updated_at = "2024-12-10T19:23:10+08:00"
+
+[status]
+state = "ongoing"
+
+[[tasks]]
+sequence = 1
+title = "Review and modify tag-based categorization in promptService.ts"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:09:04+08:00"
+user_input = """@[src/services/promptService.ts] 之前 by tags 的分类还是要的"""
+assistant_response = """Analyzed existing tag-based categorization functionality. The system already has comprehensive tag support including:
+1. Getting prompts by tag
+2. Getting popular tags
+3. Displaying tags in QuickPick items
+4. TOML-based tag storage"""
+continuation = false
+task_understanding = "Review and potentially enhance the tag-based categorization functionality in the promptService.ts file"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:09:30+08:00"
+user_input = """@[src/services/promptService.ts] 之前 by tags 的分类还是要的"""
+assistant_response = """Enhanced tag-based categorization with:
+1. New "Browse by Tags" section showing top 5 popular tags
+2. Grouped prompts by tags with dedicated sections
+3. Improved tag display with # prefix
+4. Added QuickPickTagItem type for tag navigation"""
+continuation = true
+task_understanding = "Implemented improvements to make tag-based navigation more intuitive and user-friendly"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:12:30+08:00"
+user_input = """category 与 items 应该是二级点击关系"""
+assistant_response = """Implemented two-level navigation:
+1. Main view shows categories (tags) and recent items
+2. Clicking a tag shows all prompts with that tag
+3. Modified PromptService.getQuickPickItems to support tag filtering
+4. Updated extension.ts to handle tag selection and navigation"""
+continuation = true
+task_understanding = "Implement a two-level navigation system where users first select a category (tag) and then see the items within that category"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:14:53+08:00"
+user_input = """每个分类条目都要显示下面有多少个 prompt"""
+assistant_response = """Added prompt counts to the UI:
+1. Each category now shows the number of prompts (e.g. "5 prompts")
+2. Tag view header shows total prompts in that category
+3. Counts are calculated efficiently using a Map"""
+continuation = true
+task_understanding = "Add a count of prompts to each category item to show users how many prompts are available in each category"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:16:35+08:00"
+user_input = """优化一下 UI，比如目前 label 和可选项之间的视觉差异过小，体验不好"""
+assistant_response = """Enhanced the UI with better visual hierarchy:
+1. Added VSCode icons for better visual cues:
+   - $(list-tree) for Categories
+   - $(tag) for Tags
+   - $(light-bulb) for Prompts
+   - $(history) for Recent section
+   - $(clock) for Recent items
+2. Added descriptive counts to section headers
+3. Added helpful detail text for tag items"""
+continuation = true
+task_understanding = "Improve the visual hierarchy and user experience by making labels and items more visually distinct"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:17:42+08:00"
+user_input = """感觉还是不好看，以及支持 indent 吗？"""
+assistant_response = """Enhanced UI with indentation and better styling:
+1. Added 2-space indentation for all items under headers
+2. Improved icons:
+   - $(symbol-folder) for Categories
+   - $(symbol-enum) for Tags
+   - $(symbol-keyword) for Prompts
+   - $(circle-small) for Recent items
+3. Better text formatting:
+   - More descriptive headers
+   - Improved date format
+   - Added bullet points (·) between tags
+4. Added arrow button for category items
+5. Improved descriptions with more natural language"""
+continuation = true
+task_understanding = "Improve the visual appearance with indentation support and better overall styling"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:18:55+08:00"
+user_input = """tag 应该做 capitalize 归一化处理"""
+assistant_response = """Added tag normalization:
+1. Added normalizeTag() method to handle tag capitalization:
+   - Splits on spaces, hyphens, and underscores
+   - Capitalizes first letter of each word
+   - Lowercases rest of each word
+2. Normalized tags in all displays:
+   - Category list
+   - Tag headers
+   - Tag lists in prompts
+3. Internal tag matching uses lowercase for consistency
+4. Updated tag counting to use normalized tags"""
+continuation = true
+task_understanding = "Implement tag normalization to ensure consistent capitalization and display of tags throughout the UI"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:21:10+08:00"
+user_input = """还不够好看，界面不够低调高级，以及最近选择的肯定要描述地更详细些呀"""
+assistant_response = """Enhanced UI for sophistication and added more details:
+
+1. More Elegant Design:
+   - Consistent 4-space indentation
+   - Removed excessive icons
+   - Simple right arrow (→) for categories
+   - Added extra spacing after icons
+   - More subtle section descriptions
+
+2. Enhanced Recent Items:
+   - Added relative time (e.g., "2 hours ago")
+   - Shows associated tags
+   - Includes author information
+   - Combined details with bullet points
+
+3. Improved Text:
+   - More natural pluralization
+   - Cleaner category descriptions
+   - Better section headers
+   - More consistent spacing"""
+continuation = true
+task_understanding = "Create a more sophisticated UI design and add more detailed information to recent selections"
+
+[[tasks.rounds]]
+timestamp = "2024-12-10T19:23:10+08:00"
+user_input = """不行，继续大幅优化"""
+assistant_response = """Major UI enhancements:
+
+1. Minimalist Design:
+   - Removed all unnecessary icons
+   - Cleaner section headers without descriptions
+   - Consistent 4-space indentation
+   - More whitespace for readability
+
+2. Smart Information Display:
+   - Compact time format (e.g., "2h ago", "5d ago")
+   - Large numbers formatted as "1.2k"
+   - Version numbers with prompts
+   - Author names integrated into description
+
+3. Improved Organization:
+   - Split categories into primary and secondary
+   - Added related topics in tag view
+   - Grouped prompts by subtopics
+   - Better information hierarchy
+
+4. Enhanced Details:
+   - Combined version and author info
+   - Smart date formatting
+   - Cleaner tag display
+   - More intuitive navigation"""
+continuation = true
+task_understanding = "Implement a major UI overhaul to create a more sophisticated and minimalist design with better information organization"

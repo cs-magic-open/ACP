@@ -1,0 +1,31 @@
+.tooltip-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 100;
+  width: 260px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 18px;
+  animation: tooltipFadeIn 0.15s ease-out;
+  background-color: var(--vscode-editorHoverWidget-background);
+  border: 1px solid var(--vscode-editorHoverWidget-border);
+  color: var(--vscode-editorHoverWidget-foreground);
+  box-shadow: 0 2px 8px var(--vscode-widget-shadow);
+  white-space: normal;
+  word-wrap: break-word;
+  pointer-events: none;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

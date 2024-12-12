@@ -1,0 +1,6 @@
+[submodule "awesome-cursorrules"]
+	path = awesome-cursorrules
+	url = git@github.com:PatrickJS/awesome-cursorrules.git
+[submodule "cursor.directory"]
+	path = cursor.directory
+	url = git@github.com:pontusab/cursor.directory.git
